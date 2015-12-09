@@ -1,5 +1,7 @@
-#include<stdio.h>
-#include<complex.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include "complex.h"
 
 
 int main(){
