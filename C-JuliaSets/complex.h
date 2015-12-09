@@ -1,5 +1,3 @@
-#include<stdio.h>
-
 
 typedef struct COMPLEX{
     long double x;
