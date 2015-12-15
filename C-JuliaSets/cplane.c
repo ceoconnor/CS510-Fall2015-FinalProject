@@ -57,24 +57,3 @@ Complex get(const CPLANE *m, const INDEX row, const INDEX col){
     // Return the complex number inside.
     return *(m->mat + (m->xpoints * row) + col);
 }
-
-// Abstraction layer in case implementation of Complex changes.
-void print_complex(const Complex n){
-    complex_print(n);
-}
-
-// Prints the complex plane seperated by tabs with each row on a serperate line.
-void print_cplane(const CPLANE *m){
-    INDEX r, c, maxr, maxc;
-    maxr = m->ypoints;
-    maxc = m->xpoints;
-    
-    for (r = 0; r < maxr ; r++){
-        for(c = 0; c < maxc; c++){
-            print_complex(get(m, r, c));
-            printf(" ");
-        }
-        puts("");
-    }
-    puts("");
-}
