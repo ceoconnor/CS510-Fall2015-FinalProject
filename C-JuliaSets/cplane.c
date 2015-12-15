@@ -14,6 +14,8 @@ CPLANE new_cp(const VALUE xmin, const VALUE xmax, const VALUE ymin, const VALUE 
 
     VALUE incx = (xmax-xmin)/xpoints;
     VALUE incy = (ymax-ymin)/ypoints;
+    
+    m.mat = (Complex *)calloc(ypoints * xpoints, sizeof(Complex));
     if (m.mat == NULL){
         fprintf(stderr, "Failed to allocate new_cplane\n");
     }
