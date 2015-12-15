@@ -26,9 +26,3 @@ void set(CPLANE *, const INDEX, const INDEX, const Complex);
 
 // Getter for individual complex numbers in the complex plane.
 Complex get(const CPLANE *, const INDEX, const INDEX);
-
-// Abstraction layer for printing complex numbers.
-void print_complex(const Complex);
-
-// Abstraction layer for printing complex planes.
-void print_cplane(const CPLANE *);
