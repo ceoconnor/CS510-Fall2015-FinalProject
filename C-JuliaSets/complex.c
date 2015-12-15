@@ -4,56 +4,42 @@
 #include "complex.h"
 
 
-int main(){
-    long double x1, y1, x2, y2;
-    Complex a, b, c, j, s, z;
-    printf("Enter first complex number : ");
-    scanf("%Lf+%Lfi", &x1, &y1);
-    printf("\nEnter second complex number : ");
-    scanf("%Lf+%Lfi", &x2, &y2);
-    a.x = x1;
-    b.x = y1;
-    a.y = x2;
-    b.y = y2;
-    c = mult2(a, b);
-    z = add2(a, b);
-    s = square(z);
-    j = juliamap(c, z);
-    test(c, z, s, j);
-    complex_print(z);
-    return 0;
-}
+// Multiplies two complex numbers together and returns their product.
 Complex mult2(Complex a, Complex b){
-    Complex c;
-    c.x = a.x * a.y - b.x * b.y;
-    c.y = a.x * b.y + b.x * a.y;
-    return c;
+    Complex v;
+    v.x = a.x * b.x - a.x * b.y;
+    v.y = a.x * b.y + a.y * b.x;
+    return v;
 }
+
+// Adds two complex numbers together and returns their sum.
+// Used to add z^2 to c in the juliamap.
 Complex add2(Complex a, Complex b){
-    Complex z;
-    z.x = a.x + b.x;
-    z.y = a.y + b.y;
-    return z;
+    Complex v;
+    v.x = a.x + b.x;
+    v.y = a.y + b.y;
+    return v;
 }
-Complex square(Complex z){
-    Complex s;
-    s.x = sqrt(z.x);
-    s.y = sqrt(z.y);
-    return s;
+
+// Squares two complex numbers together and returns the result.
+// Used to create the complex number z in the juliamap.
+Complex square(Complex a){
+    Complex v;
+    v.x = (a.x * a.x) - (a.y * a.y);
+    v.y = 2 * a.x * a.y;
+    return v;
 }
+
+// Combines the complex numbers z^2 and c to create the complex numbers
+// that will form the complex plane.
 Complex juliamap(Complex z, Complex c){
-    Complex j;
-    j.x = (pow(z.x, 2)) + c.x;
-    j.y = (pow(z.y, 2)) + c.y;
-    return j;
+    Complex v;
+    v = add2(square(z), c);
+    return v;
 }
+
+// Prints out a complex number. Used later to print out the complex plane and juliamap.
 void complex_print(Complex z){
-    printf("\nZ = %Lfx + %Lfyi\n", z.x, z.y);
+    printf("%Lf + %Lfi", z.x, z.y);
 }
-void test(Complex c, Complex z, Complex s, Complex j){
-    printf("\nAfter multiplication: %Lf+%Lfi", c.x, c.y);
-    printf("\nAfter addition: %Lf+%Lfi", z.x, z.y);
-    printf("\nThe square is: %Lf+%Lfi", s.x, s.y);
-    printf("\nThe juliamap is: %Lf+%Lfi", j.x, j.y);
-    
-}
+
