@@ -1,11 +1,3 @@
-//
-//  cplane.hpp
-//  
-//
-//  Created by Cormac O'Connor on 12/14/15.
-//
-//
-
 #ifndef cplane_hpp
 #define cplane_hpp
 
@@ -16,13 +8,16 @@
 #include <boost/numeric/ublas/io.hpp>
 #include <vector>
 
+// Includes proper namespaces to simplify code
 using namespace std;
 using namespace boost::numeric::ublas;
+
+// Define types as abstraction layer to protect against implementation changes.
 typedef unsigned long int INDEX;
 typedef long double VALUE;
 
 class CPLANE{
-public:
+private:
     VALUE xmin;
     VALUE xmax;
     VALUE ymin;
@@ -30,10 +25,9 @@ public:
     INDEX xpoints;
     INDEX ypoints;
     matrix<std::complex<long double> > mat;
-    
-    matrix<std::complex<long double> > set_cp(VALUE, VALUE, VALUE, VALUE, INDEX, INDEX);
-    std::complex<long double> get(matrix<std::complex<long double>, INDEX, INDEX);
-    void print_cplane(matrix<std::complex<long double>);
+public:
+    matrix<std::complex<long double> > new_cp(VALUE, VALUE, VALUE, VALUE, INDEX, INDEX);
+    std::complex<long double> get_cp(matrix<std::complex<long double>, INDEX, INDEX)
 };
 
 
