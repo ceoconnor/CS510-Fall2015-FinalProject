@@ -14,6 +14,8 @@ using namespace boost::numeric::ublas;
 // Define types as abstraction layer to protect against implementation changes.
 typedef unsigned long int INDEX;
 typedef long double VALUE;
+typedef std::complex<long double> COMP;
+matrix<std::complex<long double> > MATR;
 
 class CPLANE{
 private:
@@ -23,14 +25,14 @@ private:
     VALUE ymax;
     INDEX xpoints;
     INDEX ypoints;
-    matrix<std::complex<long double> > mat;
+    MATR mat;
 
 public:
     // Constructor that initializes types in a sensible way.
-    matrix<std::complex<long double> > new_cp(VALUE, VALUE, VALUE, VALUE, INDEX, INDEX);
+    MATR new_cp(VALUE, VALUE, VALUE, VALUE, INDEX, INDEX);
     
     // Getter for individual complex numbers.
-    std::complex<long double> get_cp(matrix<std::complex<long double>, INDEX, INDEX)
+    COMP get_cp(MATR, INDEX, INDEX)
 };
 
 
