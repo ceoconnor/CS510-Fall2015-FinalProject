@@ -7,7 +7,7 @@
 #include <boost/numeric/ublas/matrix.hpp>
 #include <boost/numeric/ublas/io.hpp>
 
-// Includes proper namespaces to simplify code
+// Includes proper namespaces to simplify code.
 using namespace std;
 using namespace boost::numeric::ublas;
 
@@ -24,8 +24,12 @@ private:
     INDEX xpoints;
     INDEX ypoints;
     matrix<std::complex<long double> > mat;
+
 public:
+    // Constructor that initializes types in a sensible way.
     matrix<std::complex<long double> > new_cp(VALUE, VALUE, VALUE, VALUE, INDEX, INDEX);
+    
+    // Getter for individual complex numbers.
     std::complex<long double> get_cp(matrix<std::complex<long double>, INDEX, INDEX)
 };
 

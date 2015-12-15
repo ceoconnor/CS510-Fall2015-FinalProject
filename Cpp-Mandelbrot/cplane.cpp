@@ -7,6 +7,7 @@
 
 using namespace boost::numeric::ublas;
 
+// Initializes the complex plane.
 CPLANE::new_cp(VALUE Xmin, VALUE Xmax, VALUE Ymin, VALUE Ymax, INDEX Xpoints, INDEX Ypoints){
     xmin = Xmin;
     xmax = Xmax;
@@ -22,6 +23,7 @@ CPLANE::new_cp(VALUE Xmin, VALUE Xmax, VALUE Ymin, VALUE Ymax, INDEX Xpoints, IN
     int i, j;
     VALUE x, y;
     
+    // Fill the complex plane
     for (x = xmin; i < xpoints; x = x + incx){
         for (y = ymin; j < ypoints; y = y + incy){
             mat(i,j) = std::complex<long double>(x,y);
@@ -32,6 +34,7 @@ CPLANE::new_cp(VALUE Xmin, VALUE Xmax, VALUE Ymin, VALUE Ymax, INDEX Xpoints, IN
     return mat;
 };
 
+// Gets the values in the complex plane.
 std::complex<long double> CPLANE::get_cp(matrix<std::complex<long double> > mat, INDEX i, INDEX j){
     std::complex<long double> m;
     m = mat(i,j);
