@@ -7,7 +7,7 @@
 int main (int argc, char **argv){
     // Checks to see if the parameters are correct. Should be 9
     if(argc < 9){
-        fprintf(stderr, "Parameters are not set correctly");
+        fprintf(stderr, "ERROR: Parameters are not set correctly");
         return 1;
     }
     
