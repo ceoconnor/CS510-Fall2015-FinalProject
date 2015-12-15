@@ -1,4 +1,9 @@
 #include "cplane.hpp"
+#include <stdio.h>
+#include <iostream>
+#include <fstream>
+#include <boost/numeric/ublas/matrix.hpp>
+#include <boost/numeric/ublas/io.hpp>
 
 using namespace boost::numeric::ublas;
 
@@ -25,8 +30,10 @@ CPLANE::new_cp(VALUE Xmin, VALUE Xmax, VALUE Ymin, VALUE Ymax, INDEX Xpoints, IN
         i++;
     }
     return mat;
-}
+};
 
-std::complex<long double> CPLANE::get_cp(matrix<std::complex<long double> > mat, INDEX row, INDEX col){
-    
-}
+std::complex<long double> CPLANE::get_cp(matrix<std::complex<long double> > mat, INDEX i, INDEX j){
+    std::complex<long double> m;
+    m = mat(i,j);
+    return m;
+};

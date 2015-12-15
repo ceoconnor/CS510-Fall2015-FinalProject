@@ -6,7 +6,6 @@
 #include <fstream>
 #include <boost/numeric/ublas/matrix.hpp>
 #include <boost/numeric/ublas/io.hpp>
-#include <vector>
 
 // Includes proper namespaces to simplify code
 using namespace std;
