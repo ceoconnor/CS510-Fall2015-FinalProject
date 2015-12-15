@@ -18,7 +18,7 @@ CPLANE::new_cp(VALUE Xmin, VALUE Xmax, VALUE Ymin, VALUE Ymax, INDEX Xpoints, IN
     VALUE incx = (xmax-xmin)/xpoints;
     VALUE incy = (ymax-ymin)/ypoints;
     
-    matrix<std::complex<long double> > mat(xpoints,ypoints);
+    MATR mat(xpoints,ypoints);
     
     int i, j;
     VALUE x, y;
@@ -26,7 +26,7 @@ CPLANE::new_cp(VALUE Xmin, VALUE Xmax, VALUE Ymin, VALUE Ymax, INDEX Xpoints, IN
     // Fill the complex plane
     for (x = xmin; i < xpoints; x = x + incx){
         for (y = ymin; j < ypoints; y = y + incy){
-            mat(i,j) = std::complex<long double>(x,y);
+            mat(i,j) = COMP(x,y);
             j++;
         }
         i++;
@@ -35,8 +35,8 @@ CPLANE::new_cp(VALUE Xmin, VALUE Xmax, VALUE Ymin, VALUE Ymax, INDEX Xpoints, IN
 };
 
 // Gets the values in the complex plane.
-std::complex<long double> CPLANE::get_cp(matrix<std::complex<long double> > mat, INDEX i, INDEX j){
-    std::complex<long double> m;
+COMP CPLANE::get_cp(MATR mat, INDEX i, INDEX j){
+    COMP m;
     m = mat(i,j);
     return m;
 };
