@@ -20,16 +20,16 @@ CPLANE::new_cp(VALUE Xmin, VALUE Xmax, VALUE Ymin, VALUE Ymax, INDEX Xpoints, IN
     
     MATR mat(xpoints,ypoints);
     
-    int i, j;
+    INDEX i, j;
     VALUE x, y;
     
     // Fill the complex plane
-    for (x = xmin; i < xpoints; x = x + incx){
-        for (y = ymin; j < ypoints; y = y + incy){
+    for (i = 0; i < xpoints; i++){
+        for (j = 0; j < ypoints; j++){
+            x = xmin + i * incx;
+            y = ymin + j * incy;
             mat(i,j) = COMP(x,y);
-            j++;
         }
-        i++;
     }
     return mat;
 };
