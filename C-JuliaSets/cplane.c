@@ -17,7 +17,7 @@ CPLANE new_cp(const VALUE xmin, const VALUE xmax, const VALUE ymin, const VALUE 
     
     m.mat = (Complex *)calloc(ypoints * xpoints, sizeof(Complex));
     if (m.mat == NULL){
-        fprintf(stderr, "Failed to allocate new_cplane\n");
+        fprintf(stderr, "ERROR: Failed to allocate new_cplane\n");
     }
     
     // Initializes the complex numbers to create the complex plane.
