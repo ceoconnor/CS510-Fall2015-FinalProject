@@ -21,14 +21,14 @@ CPLANE new_cp(const VALUE xmin, const VALUE xmax, const VALUE ymin, const VALUE 
     }
     
     // Initializes the complex numbers to create the complex plane.
-    INDEX rows, cols;
+    INDEX i, j;
     Complex n;
     // xpoints are the columns and ypoints are the rows.
-    for (rows = 0; rows < ypoints; rows++){
-        for (cols = 0; cols < xpoints; cols++){
-            n.x = xmin + cols * incx;
-            n.y = ymin + rows * incy;
-            set(&m, rows, cols, n);
+    for (i = 0; i < ypoints; i++){
+        for (j = 0; j < xpoints; j++){
+            n.x = xmin + j * incx;
+            n.y = ymin + i * incy;
+            set(&m, i, j, n);
         }
     }
     
